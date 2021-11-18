@@ -17,10 +17,10 @@ for book in books:
     
     newbook =  { 
         'name': book['title'], 
-        'author':author, 
         'price': random.uniform(250,2500), 
         'rating': random.uniform(0,5), 
-        'pubyear': book['year']
+        'pages': book['pages'], 
+        'pubdate': f"{book['year']}-{random.randint(1,12)}-{random.randint(1,30)}"  
         }
 
     Books.append(newbook)
