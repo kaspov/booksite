@@ -14,12 +14,14 @@ for book in books:
     author = book['author'] 
     age_key, age_value = 'age', random.randint(20,80)
     book_key, book_value = 'book', book['title']
-    
+    price = round(random.uniform(250,2500),2)
+    rating =  round(random.uniform(0,5),1)
+
     newbook =  { 
         'name': book['title'], 
-        'price': random.uniform(250,2500), 
-        'rating': random.uniform(0,5), 
         'pages': book['pages'], 
+        'price': price, 
+        'rating': rating, 
         'pubdate': f"{book['year']}-{random.randint(1,12)}-{random.randint(1,30)}"  
         }
 

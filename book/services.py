@@ -20,9 +20,6 @@ def createBooks():
     for book in Books: 
         try: 
             Book.objects.create(**book)
-        except Exception:
-            print('error !! error !! ' )
-
 
 
 
