@@ -1,0 +1,9 @@
+{% extends "book/base.html" %}
+
+{% block content %}
+{% for reader in reader_list %}
+	<li>
+		<a href="{{reader.get_absolute_url}}">{{reader.name}}</a>
+	</li>
+{% endfor %}
+{% endblock %}

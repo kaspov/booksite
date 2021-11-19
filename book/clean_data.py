@@ -1,10 +1,9 @@
 import json
 import random
-from book.models import Book, Author
 
 authors = { } 
 authors_books = [ ] 
-books = [ ] 
+newbooks = [ ] 
 author_model = [] 
 
 with open("book/bookList.json") as f:
@@ -26,7 +25,7 @@ for book in book_from_json:
         'pubdate': f"{book['year']}-{random.randint(1,12)}-{random.randint(1,30)}"  
         }
 
-    books.append(book_info)
+    newbooks.append(book_info)
 
     if author not in authors:
         authors[author]  = { age_key : age_value,
@@ -46,9 +45,9 @@ for author,author_val in authors.items():
                     })
 
     author_model.append({
-             'name': author['name'], 
-             'age': author['age']
+             'name': author, 
+             'age': age
              }) 
 
 
-
+AUTHORS = author_model

@@ -1,36 +1,18 @@
 from book.models import Author, Publisher, Book, Store
-from book.clean_data import ( Books, AuthorModel ) 
+from book.clean_data import (AUTHORS , ) 
 
 from book.constants import PUBLISHERS
 
-## book-> publisher ( FK ) 
-## book -> author ( MM ) 
-## book -> store ( MM ) 
-
-
 def createAuthors():
-    for author in AuthorModel: 
+    for author in AUTHORS: 
         Author.objects.create(**author)
 
 def createPublishers():
     for publisher in PUBLISHERS:
         Publisher.objects.create(name=publisher)
 
-def createBooks():
-    for book in Books: 
-        try: 
-            Book.objects.create(**book)
+# def createBooks():
+#     for book in Books: 
+#         Book.objects.create(**book)
 
-
-
-
-        
-        
-
-
-
-
-
-def createStores():
-    pass
 
