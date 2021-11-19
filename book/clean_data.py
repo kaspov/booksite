@@ -2,22 +2,23 @@ import json
 import random
 from book.models import Book, Author
 
-Authors = { } 
-AuthorList = [ ] 
-Books = [ ] 
-AuthorModel = [] 
+authors = { } 
+authors_books = [ ] 
+books = [ ] 
+author_model = [] 
 
 with open("book/bookList.json") as f:
-    books = json.load(f)
+    book_from_json = json.load(f)
 
-for book in books:
+for book in book_from_json:
+
     author = book['author'] 
     age_key, age_value = 'age', random.randint(20,80)
     book_key, book_value = 'book', book['title']
     price = round(random.uniform(250,2500),2)
     rating =  round(random.uniform(0,5),1)
 
-    newbook =  { 
+    book_info =  { 
         'name': book['title'], 
         'pages': book['pages'], 
         'price': price, 
@@ -25,30 +26,29 @@ for book in books:
         'pubdate': f"{book['year']}-{random.randint(1,12)}-{random.randint(1,30)}"  
         }
 
-    Books.append(newbook)
+    books.append(book_info)
 
-    if author not in Authors:
-        Authors[author]  = { age_key : age_value,
+    if author not in authors:
+        authors[author]  = { age_key : age_value,
                              book_key : [book_value]  
                             } 
     else: 
-        AuthorsBookList = Authors[author][book_key] 
-        AuthorsBookList.append(book_value)
+        authors_list_of_books = authors[author][book_key] 
+        authors_list_of_books.append(book_value)
 
 
 
-for author,author_val in Authors.items():
+for author,author_val in authors.items():
     age, books = author_val.values()
-    AuthorList.append({
+    authors_books.append({
                     'name': author, 
-                    'age': age, 
                     'book': books
                     })
 
-
-for author in AuthorList: 
-    AuthorModel.append({
+    author_model.append({
              'name': author['name'], 
              'age': author['age']
              }) 
+
+
 
