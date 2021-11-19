@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
@@ -18,7 +19,7 @@ class Author(models.Model):
                 'pk': self.id, 
                 'slug': self.slug
                 }
-        return reverse('article-pk-slug-detail', kwargs=kwargs)
+        return reverse('author-pk-slug-detail', kwargs=kwargs)
 
     def save(self, *args, **kwargs):
         value = self.name

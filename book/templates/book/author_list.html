@@ -1,0 +1,11 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+{% for author in object_list %}
+	<li>
+		<a href=" {{ author.get_absolute_url }} "
+		   target="_blank">{{author.name}}</a>
+	</li>
+{% endfor %}
+
+{% endblock %}
